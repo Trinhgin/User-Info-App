@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <link rel="stylesheet" type="text/css" href="../style.css">
+    </head>
+    <body>
+        <div id="header">
+            <ul id="list">
+                <% for(var i=0; i < allUsers.length; i++) { %>
+                <li id="dot"><%= allUsers[i].firstname %><%= allUsers[i].lastname %><%= allUsers[i].email %></li>
+
+                <% } %>
+            </ul>
+        </div>
+
+    </body>
+</html>

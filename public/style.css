@@ -1,0 +1,26 @@
+body {background: tomato}
+h1 {font-size: 60px; font-family: cursive}
+h2 {font-size: 40px; font-family: cursive}
+#header {
+       color: black;
+       padding: 70px;
+       text-align: center;
+}
+#list {
+    color: black;
+    text-align: center;
+}
+#form {
+    color: black;
+    text-align: center;
+}
+#table{
+    color: black;
+    text-align: center;
+    margin-left: 35%;
+    margin-right: 35%;
+}
+#dot{
+    color: black;
+    text-align: center;
+}
