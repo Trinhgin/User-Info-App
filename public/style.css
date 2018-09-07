@@ -1,6 +1,26 @@
 body {background: tomato}
 h1 {font-size: 60px; font-family: cursive}
 h2 {font-size: 40px; font-family: cursive}
+
+.topnav a:hover {
+    background-color: #ddd;
+    color: greenyellow;
+}
+
+.topnav {
+    background-color:tomato;
+    overflow: hidden;
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
 #header {
        color: black;
        padding: 70px;

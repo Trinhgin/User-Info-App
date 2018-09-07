@@ -48,7 +48,7 @@ app.get('/search', (req,res) => {
  })
 
 //with for loop
-app.post('/search', (req, res)=> {
+app.post('/matched', (req, res)=> {
   fs.readFile('../users.json', (err,data) => {
     if(err) {
       throw err;
