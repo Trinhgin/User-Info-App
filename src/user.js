@@ -41,7 +41,7 @@ app.post('/matched', (req, res)=> {
     //finding the user
     let matchedUser = null;
     for(let i=0; i<myUsers.length;i++){
-      if(req.body.firstname === myUsers[i].firstname || req.body.lastname === myUsers[i].lastname) {
+      if(req.body.name.toLowerCase() === myUsers[i].firstname.toLowerCase() || req.body.name.toLowerCase() === myUsers[i].lastname.toLowerCase()) {
         matchedUser = myUsers[i];//to remember the variable
       }
     }
