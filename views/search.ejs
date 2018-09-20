@@ -1,25 +1,57 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="../style.css">
-  </head>
-  <body>
-      <div class="topnav">
-          <a class="active" href="http://localhost:3000/">Home</a>
-          <a href="http://localhost:3000/search">Search</a>
-          <a href="http://localhost:3000/edit">Edit</a>
-      </div>
 
-      <div id="header">
-          <h2>Search user</h2>
-            <form id="form" action="/matched" method="post">
-          Name:<br>
-                <input type="text" name="name"><br>
-                <input type="submit" value="Submit">
-              </form>
-        </div>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="../style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 
-  </body>
+<body>
+  <div class="topnav">
+    <a class="active" href="http://localhost:3000/">Home</a>
+    <a href="http://localhost:3000/search">Search</a>
+    <a href="http://localhost:3000/edit">Edit</a>
+  </div>
+
+  <div id="header">
+    <h2>Search user</h2>
+    <form id="form">
+      Name:<br>
+      <input id="searchId" type="text" name="name"><br>
+      <input type="submit" value="Submit">
+    </form>
+  </div>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $("#searchId").keydown(function () {
+        let name = $('#searchId').val();
+        $.post('/search', { name: name }).done(function (response) {
+          if (response.Error) {
+            console.log('This is an error message');
+          }
+          else {
+            const result = response.Search;
+            $("#searchId").keyup(function () {
+              let userInput = {};
+              for (const el in result) {
+                $('#searchId').append(`<li>${result.name}</li>)`)
+              }
+            })
+          }
+        })
+
+
+      })
+
+    });
+
+
+
+  </script>
+
+</body>
+
 </html>
