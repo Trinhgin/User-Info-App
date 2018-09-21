@@ -28,7 +28,8 @@
     $(document).ready(function () {
       $('#searchId').keyup(function () {
         let name = $('#searchId').val().toLowerCase();
-        // setTimeout(function(){ 
+       
+        setTimeout(function(){ 
         $.post('/matched', { name: name }).done((data) => {
           $('#listOfNames').empty()
           for (const el in data) {
@@ -36,7 +37,7 @@
           }
         });
 
-        // }, 300);
+        }, 300);
       }); 
     });
   </script>
