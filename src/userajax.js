@@ -5,50 +5,50 @@
 // 'orange' returns '1'
 // 'durian' returns '-1'
 
-var fruits = ['apple','orange','pineapple']
-function findIndex(input, inputToFind){
-  var findFruit ={};
-  for(i=0;i<input.length;i++){
-    if(inputToFind === input[i]){
-      return i;;
-    }
-  }
-  if(findFruit.length ===0){
-    return i;
-  }else{
-    return -1;
+// var fruits = ['apple','orange','pineapple']
+// function findIndex(input, inputToFind){
+//   var findFruit ={};
+//   for(i=0;i<input.length;i++){
+//     if(inputToFind === input[i]){
+//       return i;;
+//     }
+//   }
+//   if(findFruit.length ===0){
+//     return i;
+//   }else{
+//     return -1;
 
-  }
-}
-findIndex(fruits,'apple')
-findIndex(fruits,'orange')
-findIndex(fruits,'pineapple')
-findIndex(fruits,'melon')
+//   }
+// }
+// findIndex(fruits,'apple')
+// findIndex(fruits,'orange')
+// findIndex(fruits,'pineapple')
+// findIndex(fruits,'melon')
 
 // now, write a function that finds all the indexes of where the value is located and returns them in an array, and if nothing is found, returns -1
 // example: ['apple', 'orange', 'orange', 'pineapple']
 // 'orange' returns [1,2]
 
-var cars = ['Ferrari',"BMW",'BMW','Mercedes','Audi']
-function findMyIndex(input, inputToFind){
-   var myIndex = [];
-   for(let i=0; i<input.length; i++){
-   if(inputToFind === input[i]){
-       myIndex.push(i);
-   }
+// var cars = ['Ferrari',"BMW",'BMW','Mercedes','Audi']
+// function findMyIndex(input, inputToFind){
+//    var myIndex = [];
+//    for(let i=0; i<input.length; i++){
+//    if(inputToFind === input[i]){
+//        myIndex.push(i);
+//    }
 
-   }
-   if (myIndex.length == 0) {
-          return -1;
-       }else{
-           return myIndex;
-       }
-}
+//    }
+//    if (myIndex.length == 0) {
+//           return -1;
+//        }else{
+//            return myIndex;
+//        }
+// }
 
-findMyIndex(cars,'Ferrari');
-findMyIndex(cars,'BMW');
-findMyIndex(cars,'Audi');
-findMyIndex(cars, 4);
+// findMyIndex(cars,'Ferrari');
+// findMyIndex(cars,'BMW');
+// findMyIndex(cars,'Audi');
+// findMyIndex(cars, 4);
 
 
 
