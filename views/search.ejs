@@ -1,25 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="../style.css">
-  </head>
-  <body>
-      <div class="topnav">
-          <a class="active" href="http://localhost:3000/">Home</a>
-          <a href="http://localhost:3000/search">Search</a>
-          <a href="http://localhost:3000/edit">Edit</a>
-      </div>
 
-      <div id="header">
-          <h2>Search user</h2>
-            <form id="form" action="/matched" method="post">
-          Name:<br>
-                <input type="text" name="name"><br>
-                <input type="submit" value="Submit">
-              </form>
-        </div>
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" type="text/css" href="../style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
 
-  </body>
+<body>
+  <div class="topnav">
+    <a class="active" href="http://localhost:3000/">Home</a>
+    <a href="http://localhost:3000/search">Search</a>
+    <a href="http://localhost:3000/edit">Edit</a>
+  </div>
+
+  <div id="header">
+    <h2>Search user</h2>
+    <form id="form" action="/matched-form" method="POST">
+      Name:<br>
+      <input id="searchId" type="text" name="name" autocomplete="off"><br>
+      <ul id="listOfNames"></ul>
+    </form>
+  </div>
+  <script type="text/javascript">
+    $(document).ready(function () {
+      $('#searchId').keyup(function () {
+        let name = $('#searchId').val().toLowerCase();
+       
+        
+        $.post('/matched', { name: name }).done((data) => {
+          $('#listOfNames').empty()
+          for (const el in data) {
+            $('#listOfNames').append(`<ul>${data[el].firstname} ${data[el].lastname} ${data[el].email}</a></ul>`);
+          }
+        });
+
+       
+      }); 
+    });
+  </script>
+
+</body>
+
 </html>
+
