@@ -26,23 +26,22 @@
   </div>
   <script type="text/javascript">
     $(document).ready(function () {
+      let myVariable;
       $('#searchId').keyup(function () {
         let name = $('#searchId').val().toLowerCase();
-       
-        
-        $.post('/matched', { name: name }).done((data) => {
-          $('#listOfNames').empty()
-          for (const el in data) {
-            $('#listOfNames').append(`<ul>${data[el].firstname} ${data[el].lastname} ${data[el].email}</a></ul>`);
-          }
-        });
-
-       
-      }); 
+        clearTimeout(myVariable)
+        myVariable = setTimeout(() => {
+          $.post('/matched', { name: name }).done((data) => {
+            $('#listOfNames').empty()
+            for (const el in data) {
+              $('#listOfNames').append(`<ul>${data[el].firstname} ${data[el].lastname} ${data[el].email}</a></ul>`);
+            }
+          });
+        }, 300);
+      });
     });
   </script>
 
 </body>
 
 </html>
-
