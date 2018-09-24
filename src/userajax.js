@@ -1,56 +1,3 @@
-// Part 0: If you're having trouble finding matching users, solve this puzzle first:
-
-// given an array of values, write a function that finds the index of where the value is located, and if nothing is found, returns -1.
-// example: for ['apple', 'orange', 'pineapple']
-// 'orange' returns '1'
-// 'durian' returns '-1'
-
-var fruits = ['apple','orange','pineapple']
-function findIndex(input, inputToFind){
-  var findFruit ={};
-  for(i=0;i<input.length;i++){
-    if(inputToFind === input[i]){
-      return i;;
-    }
-  }
-  if(findFruit.length ===0){
-    return i;
-  }else{
-    return -1;
-
-  }
-}
-findIndex(fruits,'apple')
-findIndex(fruits,'orange')
-findIndex(fruits,'pineapple')
-findIndex(fruits,'melon')
-
-// now, write a function that finds all the indexes of where the value is located and returns them in an array, and if nothing is found, returns -1
-// example: ['apple', 'orange', 'orange', 'pineapple']
-// 'orange' returns [1,2]
-
-var cars = ['Ferrari',"BMW",'BMW','Mercedes','Audi']
-function findMyIndex(input, inputToFind){
-   var myIndex = [];
-   for(let i=0; i<input.length; i++){
-   if(inputToFind === input[i]){
-       myIndex.push(i);
-   }
-
-   }
-   if (myIndex.length == 0) {
-          return -1;
-       }else{
-           return myIndex;
-       }
-}
-
-findMyIndex(cars,'Ferrari');
-findMyIndex(cars,'BMW');
-findMyIndex(cars,'Audi');
-findMyIndex(cars, 4);
-
-
 
 const express = require('express');
 const app = express();
@@ -59,11 +6,11 @@ const fs = require('fs');
 
 app.set('view engine', 'ejs');
 app.set('views', '../views');
-app.use(express.static('../public'))
+app.use(express.static('../public/css'))
 app.use(bodyParser.urlencoded({ extended: false }))
 
 app.get('/', (req, res) => {
-  fs.readFile('../users.json', (err, data) => {
+  fs.readFile('../public/json/users.json', (err, data) => {
     if (err) {
       throw err;
     }
@@ -83,7 +30,7 @@ app.get('/search', (req, res) => {
 app.post('/matched', (req, res) => {
   // console.log(req.body.name)
   let input = req.body.name.toLowerCase();
-  fs.readFile('../users.json', (err, data) => {
+  fs.readFile('../public/json/users.json', (err, data) => {
     if (err) {
       throw err;
     }
@@ -105,7 +52,7 @@ app.get('/edit', (req, res) => {
 })
 
 app.post('/edit', (req, res) => {
-  fs.readFile('../users.json', (err, data) => {
+  fs.readFile('../public/json/users.json', (err, data) => {
     if (err) {
       throw err;
     } else {
@@ -119,7 +66,7 @@ app.post('/edit', (req, res) => {
       users.push(newUser); 
       let textToWriteToFile = JSON.stringify(users);
 
-      fs.writeFile('../users.json', textToWriteToFile, (err) => {
+      fs.writeFile('../public/json/users.json', textToWriteToFile, (err) => {
         if (err) {
           throw err;
         }
